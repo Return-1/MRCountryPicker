@@ -44,6 +44,20 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         super.delegate = self
     }
     
+    func trimCountries(countriesToKeepByName : String){
+        
+        var trimmedCountries = [Country]()
+
+        for country in self.countries{
+            if(countriesToKeepByName.contains(country.phoneCode!)){
+                trimmedCountries.append(country)
+            }
+        }
+        
+        
+        self.countries = trimmedCountries;
+    }
+    
     // MARK: - Country Methods
     
     open func setCountry(_ code: String) {
