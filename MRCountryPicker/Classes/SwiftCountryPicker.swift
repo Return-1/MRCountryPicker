@@ -49,7 +49,7 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         var trimmedCountries = [Country]()
 
         for country in self.countries{
-            if(countriesToKeepByName.contains(country.phoneCode!)){
+            if(countriesToKeepByName.contains(country.name!)){
                 trimmedCountries.append(country)
             }
         }
