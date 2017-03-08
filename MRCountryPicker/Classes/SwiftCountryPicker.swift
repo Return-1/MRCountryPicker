@@ -39,12 +39,12 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
     
     func setup() {
         countries = countryNamesByCode()
-
+        
         super.dataSource = self
         super.delegate = self
     }
     
-    func trimCountries(countriesToKeepByName : String){
+    open func trimCountries(countriesToKeepByName : String){
         
         var trimmedCountries = [Country]()
 
