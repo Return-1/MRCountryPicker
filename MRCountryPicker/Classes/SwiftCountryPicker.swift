@@ -44,7 +44,7 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         super.delegate = self
     }
     
-    open func trimCountries(countriesToKeepByName : String){
+    open func trimCountries(countriesToKeepByName : [String]){
         
         var trimmedCountries = [Country]()
 
