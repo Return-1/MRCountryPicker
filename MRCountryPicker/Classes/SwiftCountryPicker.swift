@@ -56,6 +56,7 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         
         
         self.countries = trimmedCountries;
+        self.reloadAllComponents()
     }
     
     // MARK: - Country Methods
@@ -79,7 +80,7 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
     open func setCountryByPhoneCode(_ phoneCode: String) {
         var row = 0
         for index in 0..<countries.count {
-            if countries[index].phoneCode == phoneCode {
+            if(countries[index].phoneCode?.replacingOccurrences(of: "+", with: "") == phoneCode.replacingOccurrences(of: "+", with: "")){
                 row = index
                 break
             }
