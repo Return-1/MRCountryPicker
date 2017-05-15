@@ -8,7 +8,7 @@
 
 Versions below 0.0.4 are Swift 2.2 compatible, Version 0.0.5+ is Swift 3 compatible.
 
-##This Fork
+## This Fork
 
 This Fork has an added function that only shows specific countries in the plugin in case you dont want to show all of them. Nothing fancy, for personal use.
 
