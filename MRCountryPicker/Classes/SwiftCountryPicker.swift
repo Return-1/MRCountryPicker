@@ -110,8 +110,6 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         }
        
         self.countries = trimmedCountries;
-        var a = self.countries;
-        print(a)
         self.reloadAllComponents()
 
     }
