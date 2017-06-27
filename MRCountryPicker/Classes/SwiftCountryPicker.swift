@@ -19,6 +19,8 @@ struct Country {
         self.name = name
         self.phoneCode = phoneCode
     }
+    
+    
 }
 
 open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -93,6 +95,20 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         }
     }
     
+    //this is quickfix solution
+    open func changeCountryNamesLanguage(countryNamesOriginal : [String], toTranslatedCountryNames: [String]){
+        
+        for var country1 in self.countries{
+            
+            if(country1.name != nil && countryNamesOriginal.index(of: country1.name!) != nil){
+                var index = countryNamesOriginal.index(of: country1.name!)
+                country1.name = toTranslatedCountryNames[index!]
+            }
+        }
+        self.reloadAllComponents()
+
+    }
+    
     // Populates the metadata from the included json file resource
     
     func countryNamesByCode() -> [Country] {
@@ -115,7 +131,7 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
                             return countries
                         }
 
-                        let country = Country(code: code, name: name, phoneCode: phoneCode)
+                        var country = Country(code: code, name: name, phoneCode: phoneCode)
                         countries.append(country)
                     }
 
