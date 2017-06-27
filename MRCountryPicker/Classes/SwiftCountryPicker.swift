@@ -98,13 +98,20 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
     //this is quickfix solution
     open func changeCountryNamesLanguage(countryNamesOriginal : [String], toTranslatedCountryNames: [String]){
         
+        var trimmedCountries = [Country]()
+        
         for var country1 in self.countries{
             
             if(country1.name != nil && countryNamesOriginal.index(of: country1.name!) != nil){
                 var index = countryNamesOriginal.index(of: country1.name!)
                 country1.name = toTranslatedCountryNames[index!]
             }
+            trimmedCountries.append(country1)
         }
+       
+        self.countries = trimmedCountries;
+        var a = self.countries;
+        print(a)
         self.reloadAllComponents()
 
     }
