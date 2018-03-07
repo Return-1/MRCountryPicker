@@ -95,6 +95,22 @@ open class MRCountryPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewData
         }
     }
     
+    open func setCountryByCode(_ code: String) {
+        var row = 0
+        for index in 0..<countries.count {
+            if(countries[index].code == code){
+                row = index
+                break
+            }
+        }
+        
+        self.selectRow(row, inComponent: 0, animated: true)
+        let country = countries[row]
+        if let countryPickerDelegate = countryPickerDelegate {
+            countryPickerDelegate.countryPhoneCodePicker(self, didSelectCountryWithName: country.name!, countryCode: country.code!, phoneCode: country.phoneCode!, flag: country.flag!)
+        }
+    }
+    
     //this is quickfix solution
     open func changeCountryNamesLanguage(countryNamesOriginal : [String], toTranslatedCountryNames: [String]){
         
